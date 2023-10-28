@@ -6,7 +6,15 @@ def encode(password):
     return new_password
 
 def decode(password):
-    
+#Kyle Schipf decode function
+	original_pass = ''
+	for num in password:
+		if int(num) <= 2:
+			convert = str(int(num) + 7)
+			original_pass += convert
+		else:
+			original_pass += str(int(num)-3)
+	return original_pass
 
 def menu():
     print('Menu\n-------------\n1. Encode\n2. Decode\n3. Quit\n')
