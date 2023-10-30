@@ -5,16 +5,22 @@ def encode(password):
         new_password = new_password + str(int(password[i])+3)
     return new_password
 
-def decode(password):
-#Kyle Schipf decode function
-	original_pass = ''
-	for num in password:
-		if int(num) <= 2:
-			convert = str(int(num) + 7)
-			original_pass += convert
-		else:
-			original_pass += str(int(num)-3)
-	return original_pass
+def decode(password):#Kyle Schipf decode function
+    original_pass = ''
+    condition = True
+    index = 0
+    while condition:
+        if(index == len(password)) or index == len(password) + 1:
+            break
+        if int(password[index]) <= 2:
+            converted_num = str(int(password[index + 1]) + 7)
+            original_pass += converted_num
+            index += 2
+        else:
+            original_pass += str(int(password[index]) - 3)
+            index += 1
+    return original_pass
+
 
 def menu():
     print('Menu\n-------------\n1. Encode\n2. Decode\n3. Quit\n')
